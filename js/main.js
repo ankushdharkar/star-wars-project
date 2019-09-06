@@ -1,6 +1,7 @@
 var btnLoadData = document.querySelector('#btn-load-data');
 btnLoadData.addEventListener('click', function loadDataFunc() {
   var starWarsDataPrm = fetchData();
+  btnLoadData.classList.add('loading')
 
   starWarsDataPrm.then(data => {
     const { results } = data
@@ -42,3 +43,16 @@ function addCharacterCard(name, birthYear, gender) {
       </div>
     </div>`);
 }
+
+var btnIncreaseNameSize = document.querySelector('btn-increase-name-size');
+btnIncreaseNameSize.addEventListener('click', function () {
+  const allNames = document.querySelectorAll('chr-name')
+  allNames.forEach( nameItem => {
+    nameItem.style.fontSize = '20px';
+    nameItem.style.color = 'purple';
+    nameItem.style.fontSize = '1000px';
+    nameItem.style.color = 'red';
+    nameItem.style.fontSize = '25px';
+    nameItem.style.color = 'white';
+  })
+})
