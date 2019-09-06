@@ -27,13 +27,17 @@ function clearAllCharacters() {
   })
 }
 
-function addCharacterCard(name, birthYear, gender) {
+function addCharacterCard(name, birthYear, gender, starShips) {
   var cardsHolder = document.querySelector('#holder-cards');
+  var starsShipsStr = starShips.join(', ')
 
   cardsHolder.insertAdjacentHTML('beforeend', 
     `<div class="chr-card">
       <div class="chr-name">
         ${name}
+      </div>
+      <div class="chr-starships">
+        ${starshipsStr}
       </div>
       <div class="chr-birth-year">
         ${birthYear}
@@ -44,9 +48,9 @@ function addCharacterCard(name, birthYear, gender) {
     </div>`);
 }
 
-var btnIncreaseNameSize = document.querySelector('btn-increase-name-size');
+var btnIncreaseNameSize = document.querySelector('#btn-increase-name-size');
 btnIncreaseNameSize.addEventListener('click', function () {
-  const allNames = document.querySelectorAll('chr-name')
+  const allNames = document.querySelectorAll('.chr-name')
   allNames.forEach( nameItem => {
     nameItem.style.fontSize = '20px';
     nameItem.style.color = 'purple';
