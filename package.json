@@ -1,0 +1,24 @@
+{
+  "name": "star-wars-project",
+  "version": "0.0.0",
+  "description": "Star Wars viewer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ankushdharkar@github.com/ankushdharkar/star-wars-project.git"
+  },
+  "keywords": [
+    "star",
+    "wars",
+    "learning"
+  ],
+  "author": "ankush",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankushdharkar/star-wars-project/issues"
+  },
+  "homepage": "https://github.com/ankushdharkar/star-wars-project#readme"
+}
