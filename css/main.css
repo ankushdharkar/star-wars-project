@@ -17,3 +17,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.chr-card {
+  padding-top: 50px !important;
+}

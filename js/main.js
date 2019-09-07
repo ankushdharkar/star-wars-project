@@ -44,6 +44,10 @@ function addCharacterCard(name, birthYear, gender, starships) {
         ${gender}
       </div>
     </div>`);
+
+    cardsHolder.lastChild.addEventListener('click', function removeCard() {
+      this.remove()
+    })
 }
 
 var btnIncreaseNameSize = document.querySelector('#btn-increase-name-size');
@@ -58,3 +62,11 @@ btnIncreaseNameSize.addEventListener('click', function () {
     nameItem.style.color = 'white';
   })
 })
+
+document.addEventListener('DOMContentLoaded', function(){
+});
+
+window.addEventListener('load', function loadedWindow () {
+  const allElems = document.getElementsByClassName('starting-header');
+  allElems.style.fontSize = '25px';
+});

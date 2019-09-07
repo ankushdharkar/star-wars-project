@@ -38,7 +38,7 @@ function fetchData() {
         if (starships.length > 0) {
           const starshipsNames = []
           starships.forEach(shipURL => {
-            nameOfStarship = starshipsMap[shipURL]
+            const nameOfStarship = starshipsMap[shipURL]
             starshipsNames.push(nameOfStarship)
           })
           resObj.starships = starshipsNames
