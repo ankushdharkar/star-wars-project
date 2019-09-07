@@ -68,5 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 window.addEventListener('load', function loadedWindow () {
   const allElems = document.getElementsByClassName('starting-header');
-  allElems.style.fontSize = '25px';
+  for(i=1; i < allElems.length; i++ ){
+    allElems[i].style.fontSize = '25px';
+  }
 });
