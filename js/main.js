@@ -1,14 +1,7 @@
 var btnLoadData = document.querySelector('#btn-load-data');
 btnLoadData.addEventListener('click', function loadDataFunc() {
-  var starWarsDataPrm = fetchData();
   btnLoadData.classList.add('loading')
-
-  starWarsDataPrm.then(data => {
-    data.forEach( chrRes => {
-      const { birth_year: birthYear, gender, name, starships } = chrRes
-      addCharacterCard(name, birthYear, gender, starships)
-    })
-  })
+  loadStarWarsCards();
 })
 
 
@@ -16,6 +9,16 @@ var btnClearData = document.querySelector('#btn-clear-data');
 btnClearData.addEventListener('click', function loadDataFunc() {
   clearAllCharacters();
 })
+
+function loadStarWarsCards () {
+  const starWarsDataPrm = fetchData();
+  starWarsDataPrm.then(data => {
+    data.forEach( chrRes => {
+      const { birth_year: birthYear, gender, name, starships } = chrRes
+      addCharacterCard(name, birthYear, gender, starships)
+    })
+  })
+}
 
 
 function clearAllCharacters() {
@@ -64,6 +67,7 @@ btnIncreaseNameSize.addEventListener('click', function () {
 })
 
 document.addEventListener('DOMContentLoaded', function(){
+  loadStarWarsCards();
 });
 
 window.addEventListener('load', function loadedWindow () {
