@@ -31,9 +31,11 @@ function clearAllCharacters() {
 function addCharacterCard(name, birthYear, gender, starships) {
   var cardsHolder = document.querySelector('#holder-cards');
   var starshipsStr = starships.join(', ')
+  const img = `./img/${birthYear}.png`
 
   cardsHolder.insertAdjacentHTML('beforeend', 
     `<div class="chr-card">
+      <img src=${img} class="chr-img"/>
       <div class="chr-name">
         ${name}
       </div>
