@@ -4,11 +4,9 @@ btnLoadData.addEventListener('click', function loadDataFunc() {
   btnLoadData.classList.add('loading')
 
   starWarsDataPrm.then(data => {
-    const { results } = data
-
-    results.forEach( chrRes => {
-      const { birth_year: birthYear, gender, name } = chrRes
-      addCharacterCard(name, birthYear, gender)
+    data.forEach( chrRes => {
+      const { birth_year: birthYear, gender, name, starships } = chrRes
+      addCharacterCard(name, birthYear, gender, starships)
     })
   })
 })
@@ -27,9 +25,9 @@ function clearAllCharacters() {
   })
 }
 
-function addCharacterCard(name, birthYear, gender, starShips) {
+function addCharacterCard(name, birthYear, gender, starships) {
   var cardsHolder = document.querySelector('#holder-cards');
-  var starsShipsStr = starShips.join(', ')
+  var starshipsStr = starships.join(', ')
 
   cardsHolder.insertAdjacentHTML('beforeend', 
     `<div class="chr-card">

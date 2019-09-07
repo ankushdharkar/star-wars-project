@@ -21,26 +21,29 @@ function fetchData() {
       }
     ).then(data => data.json())
 
-    Promise.all([fetchPeople, fetchStarships]).then(([peopleData, starShipsData]) => {
+    Promise.all([fetchPeople, fetchStarships]).then(([peopleData, starshipsData]) => {
       const { results: peopleArr = [] } = peopleData
-      const { results: starShipsArr = [] } = starShipsData
+      const { results: starshipsArr = [] } = starshipsData
 
-      const starShipsMap = starShipsArr.reduce((acc, curr) => {
+      const starshipsMap = starshipsArr.reduce((acc, curr) => {
         const { url, name } = curr
         acc[url] = name
         return acc
       }, {})
 
-      let resData = peopleArr
-      resData.forEach( person => {
-        const { films: starships = [] } = person
-        if(starships.length > 0){
-          let starshipsNames = []
-          starships.forEach(ship => {
-            nameOfStarship = starShipsMap[ship]
-            starshipsNames.push(starShipsMap[ship])
+      let resData = []
+      peopleArr.forEach( person => {
+        let resObj = person
+        let { starships = [] } = person
+        if (starships.length > 0) {
+          const starshipsNames = []
+          starships.forEach(shipURL => {
+            nameOfStarship = starshipsMap[shipURL]
+            starshipsNames.push(nameOfStarship)
           })
+          resObj.starships = starshipsNames
         }
+        resData.push(resObj)
       })
       resolve(resData)
     })
